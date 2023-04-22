@@ -1,0 +1,29 @@
+
+/* DO YOU C SS bro? DO you REALlY?*/
+
+
+html {
+    height: 100%;}
+
+body {
+    min-height: 100%;
+    background: #A41B3A;
+    background: -moz-linear-gradient(left, #A41B3A 0%, #CBC113 50%, #070275 100%);
+    background: -webkit-linear-gradient(left, #A41B3A 0%, #CBC113 50%, #070275 100%);
+    background: linear-gradient(to right, #A41B3A 0%, #CBC113 50%, #070275 100%);}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;}
+
+.fiveday {
+    display: flex;
+    align-items: center;
+}
+.forecast{
+    padding: 0.3em;
+    border-style: dashed;
+    border-color: plum;
+    border-width: 3px;
+}
