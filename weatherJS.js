@@ -32,6 +32,29 @@ function success(position){
     console.log(longitude + " " + latitude)
 }
 
+const xhr = new XMLHttpRequest
+xhr.open("GET", "URL");
+xhr.send();
+  xhr.onload() =  function() {
+    const body = JSON.parse(xhr.responseText);
+    let temperature = body.temperature;
+    let weatherStatus = body.weatherStatus;
+    document.getElementbyId("temperature").innerHTML = `Temperature: ${temperature}`
+    document.getElementbyId("weatherstatus").innerHTML = `Weather Status: ${weatherStatus}`
+  }
+  const xhr2 = new XHMLHttpRequest;
+  xhr2.open("GET", `http://localhost:3000/weather/${lat}/${lon}`);
+  xhr2.send();
+  
+  xhr2.onload() = function() {
+      const body = JSON.parse(xhr2.responseText);
+      let forecast = body.forecast
+  var forecastElements = document.getElementsByClassName("forecast");
+  for (var i = 0; i < forecast.length; i++) {
+    forecastElements[i].innerHTML = `${forecast[i].dayName}: ${forecast[i].temp}°F`
+  }
+  }
+
 
 app.get('/weather/:lat/:lon', (req, res) => {
   res.send('Hello World!');
@@ -94,28 +117,6 @@ app.get('/5day/:lat/:lon', (req, res) => {
      res.send({ forecast });
 });
 
-
-// const xhr = new XMLHttpRequest
-//  xhr.open("GET", "URL");
-//  xhr.send();
-//
-//  xhr.onload() =  function() {
-//    const body = JSON.parse(xhr.responseText);
-//    let temperature = body.temperature;
-//    let weatherStatus = body.weatherStatus;
-//    document.getElementbyId("temperature").innerHTML = `Temperature: ${temperature}`
-//    document.getElementbyId("weatherstatus").innerHTML = `Weather Status: ${weatherStatus}`
-//    vim rules mf!!!!!!
-//  }
-//
-// const xhr2 = new XHMLHttpRequest;
-//  xhr2.open("GET", `http://localhost:3000/weather/${lat}/${lon}');
-//  xhr2.send();
-//  
-//  xhr2.onload() = function() {
-//      const body = JSON.parse(xhr2.responseText);
-//      let forecast = body.forecast
-//  }
 //
 //  let helloString = `In it is degrees`
 //  let temp = 59
